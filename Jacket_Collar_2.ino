@@ -10,14 +10,7 @@ const int nFrames = 3; //number of frames
 const int height = 4;  //height of frame
 const int width = 28;   //width of frame
 
-void setup() {
-  
-  strip.begin();
-  strip.show(); // Initialize all pixels to 'off'
-  
-
- 
-    //write the animation to memory
+//write the animation to memory
     uint8_t anim[nFrames][height][width][3] =
     {  //whole data object
      { //first frame
@@ -39,6 +32,12 @@ void setup() {
       {{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}}  //first row
      }
     };
+
+void setup() {
+  
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+  
 }
 
 void loop() {
