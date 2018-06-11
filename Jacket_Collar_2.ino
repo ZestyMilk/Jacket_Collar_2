@@ -4,17 +4,18 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(112, PIN, NEO_GRB + NEO_KHZ800);
 
 //animation speed
-uint8_t  wait = 50;
+uint8_t  wait = 5;
 
 const int nFrames = 3; //number of frames
 const int height = 4;  //height of frame
 const int width = 28;   //width of frame
-const int R1 = (random(10,30));
-const int R2 = (random(10,30));
-const int R3 = (random(10,30));
-const int R4 = (random(10,30));
+uint8_t R1 = (random(10,30));
+uint8_t R2 = (random(10,30));
+uint8_t R3 = (random(10,30));
+uint8_t R4 = (random(10,30));
 
 //write the animation to memory
+    
     uint8_t anim[nFrames][height][width][3] =
     {  //whole data object
       
@@ -26,10 +27,10 @@ const int R4 = (random(10,30));
      },
      
      { //second frame
-      {{R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}}, //fourth row
-      {{R3,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}}, //third row
-      {{R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}}, //second row
-      {{R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}}  //first row
+      {{R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,50,0}, {R1,50,0}, {R1,50,0}, {R1,50,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}}, //fourth row
+      {{R3,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,50,0}, {R2,50,0}, {R2,50,0}, {R2,50,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}}, //third row
+      {{R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,50,0}, {R3,50,0}, {R3,50,0}, {R3,50,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}}, //second row
+      {{R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,50,0}, {R4,50,0}, {R4,50,0}, {R4,50,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}}  //first row
      },
      
      { //third frame
@@ -50,9 +51,7 @@ void setup() {
 void loop() {
 
     uint8_t* pixel;  //a variable to point to a pixel in the animation
- 
-    for(int frame=0; frame<nFrames; frame++){ //loop through the frames
-        for(int row = 0; row<height; row++){  //row by row
+         for(int row = 0; row<height; row++){  //row by row
             for(int col=0; col<width; col++){ //one pixel at a time
                 //select the pixel
                 pixel = anim[frame][row][col]; 
@@ -62,7 +61,7 @@ void loop() {
                 int green = pixel[1];
                 int blue = pixel[2];
               
-                red = red + random(0,20); //inject some noise on the red channel
+                //red = red + random(0,20); //inject some noise on the red channel
               
                 //figure out which led on the strip
                 int ledPos = col + (row*(width)) + (frame*(height*width));
@@ -78,4 +77,5 @@ void loop() {
         }
         delay(wait);   //10fps maybe
     }
+  strip.show();
 }
