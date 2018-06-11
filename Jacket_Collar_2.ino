@@ -10,9 +10,9 @@ const int nFrames = 3; //number of frames
 const int height = 4;  //height of frame
 const int width = 28;   //width of frame
 const int R1 = (random(10,30));
-const int R2 = (random(10,30))
-const int R3 = (random(10,30))
-const int R4 = (random(10,30))
+const int R2 = (random(10,30));
+const int R3 = (random(10,30));
+const int R4 = (random(10,30));
 
 //write the animation to memory
     uint8_t anim[nFrames][height][width][3] =
