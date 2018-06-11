@@ -70,6 +70,6 @@ void loop() {
                 );
             }
         }
-        delay(100);   //10fps maybe
+        delay(wait);   //10fps maybe
     }
 }
