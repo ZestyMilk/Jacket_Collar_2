@@ -18,7 +18,7 @@ void setup() {
     const int width = 28;   //width of frame
  
     //write the animation to memory
-    uint8_t R = (random(10,30));
+    uint8_t R = 0;
     uint8_t anim[nFrames][height][width][3] =
     {  //whole data object
      { //first frame
@@ -47,15 +47,28 @@ void loop() {
     for(int frame=0; frame<nFrames; frame++){ //loop through the frames
         for(int row = 0; row<height; row++){  //row by row
             for(int col=0; col<width; col++){ //one pixel at a time
- 
+
                 pixel = anim[frame][row][col];  //select the pixel
-                //do something with it
-                //pixel[0] is red
-                //pixel[1] is green
-                //pixel[2] is blue
- 
+              
+                // split the channels
+                int red = pixel[0]; 
+                int green = pixel[1];
+                int blue = pixel[2];
+              
+                red = red + random(0,20); //inject some noise on the red channel
+              
+                 //figure out which led on the strip
+                 int ledPos = col + (row*(width)) + (frame*(height*width))
+                   
+                 //set the colour
+                 strip.setPixelColor(
+                   ledPos,
+                   red,
+                   green,
+                   blue
+                 );
             }
         }
-        //sleep between frames
+        delay(100);   //10fps maybe
     }
 }
