@@ -4,26 +4,36 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(112, PIN, NEO_GRB + NEO_KHZ800);
 
 //animation speed
-uint8_t  wait = 5;
+uint8_t  wait = 10;
 
 const int nFrames = 3; //number of frames
 const int height = 4;  //height of frame
 const int width = 28;   //width of frame
-uint8_t R1 = (random(10,30));
-uint8_t R2 = (random(10,30));
-uint8_t R3 = (random(10,30));
-uint8_t R4 = (random(10,30));
 
-//write the animation to memory
+void setup() {
+  
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+  
+}
+
+void loop() {
+  
+    uint8_t R1 = (random(10,30));
+    uint8_t R2 = (random(10,30));
+    uint8_t R3 = (random(10,30));
+    uint8_t R4 = (random(10,30));
+
+
     
-    uint8_t anim[nFrames][height][width][3] =
+uint8_t anim[nFrames][height][width][3] =
     {  //whole data object
       
      { //first frame
-      {{R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}}, //fourth row
-      {{R3,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}}, //third row
-      {{R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}}, //second row
-      {{R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}}  //first row
+      {{R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,10,0}, {R1,10,0}, {R1,10,0}, {R1,10,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}, {R1,0,0}}, //fourth row
+      {{R3,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,10,0}, {R2,10,0}, {R2,10,0}, {R2,10,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}, {R2,0,0}}, //third row
+      {{R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,10,0}, {R3,10,0}, {R3,10,0}, {R3,10,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}, {R3,0,0}}, //second row
+      {{R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,10,0}, {R4,10,0}, {R4,10,0}, {R4,10,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}, {R4,0,0}}  //first row
      },
      
      { //second frame
@@ -41,17 +51,12 @@ uint8_t R4 = (random(10,30));
      }
     };
 
-void setup() {
-  
-  strip.begin();
-  strip.show(); // Initialize all pixels to 'off'
-  
-}
 
-void loop() {
-
+    
     uint8_t* pixel;  //a variable to point to a pixel in the animation
-         for(int row = 0; row<height; row++){  //row by row
+ 
+    for(int frame=0; frame<nFrames; frame++){ //loop through the frames
+        for(int row = 0; row<height; row++){  //row by row
             for(int col=0; col<width; col++){ //one pixel at a time
                 //select the pixel
                 pixel = anim[frame][row][col]; 
