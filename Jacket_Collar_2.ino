@@ -19,10 +19,10 @@ void setup() {
 
 void loop() {
   
-    uint8_t R1 = (random(10,30));
-    uint8_t R2 = (random(10,30));
-    uint8_t R3 = (random(10,30));
-    uint8_t R4 = (random(10,30));
+    uint8_t R1 = (random(13,20));
+    uint8_t R2 = (random(13,20));
+    uint8_t R3 = (random(13,20));
+    uint8_t R4 = (random(13,20));
 
 
     
